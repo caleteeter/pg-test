@@ -6,6 +6,6 @@ serverName=$3
 dbName=$4
 
 # login
-az login --identity --username $managedIdentity --allow-no-subscriptions
+az login --identity --username $managedIdentity # --allow-no-subscriptions
 
-az postgres db create --name $dbName --resource-group $resourceGroupName --server-name $serverName
+# az postgres db create --name $dbName --resource-group $resourceGroupName --server-name $serverName

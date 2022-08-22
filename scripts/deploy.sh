@@ -6,7 +6,7 @@ adminName=$3
 adminPwd=$4
 
 # login
-az login --identity --username $managedIdentity
+az login --identity --username $managedIdentity --allow-no-subscriptions
 
 az postgres server execute --name $serverName --admin-user $adminName --admin-password $adminPwd --databaseName 'postgres' -query-text 'CREATE DATABASE inventory;'
 

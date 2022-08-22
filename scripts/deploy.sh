@@ -1,12 +1,10 @@
 #!/bin/bash
 
-managedIdentity=$1
-serverName=$2
-adminName=$3
-adminPwd=$4
+dbName=$1
+resourceGroupName=$2
+serverName=$3
 
 # login
-az login --identity --username $managedIdentity --allow-no-subscriptions
+az login --allow-no-subscriptions
 
-az postgres server execute --name $serverName --admin-user $adminName --admin-password $adminPwd --databaseName 'postgres' -query-text 'CREATE DATABASE inventory;'
-
+az postgres db create --name $dbName --resource-group $resourceGroupName --server-name $serverName

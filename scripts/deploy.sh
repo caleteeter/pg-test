@@ -7,7 +7,7 @@ dbName=$4
 subscriptionId=$5
 
 # login
-az login --identity --username $managedIdentity --allow-no-subscriptions
+az login --identity --username $managedIdentity
 
 az account set --subscription $subscriptionId
 

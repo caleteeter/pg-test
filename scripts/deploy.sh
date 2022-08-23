@@ -8,7 +8,4 @@ subscriptionId=$5
 
 # login
 az login --identity --username $managedIdentity
-
-az account set --subscription $subscriptionId
-
-# az postgres db create --name $dbName --resource-group $resourceGroupName --server-name $serverName
+az postgres db create --name $dbName --resource-group $resourceGroupName --server-name $serverName

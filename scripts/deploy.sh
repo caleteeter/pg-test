@@ -9,6 +9,9 @@ administratorLoginPassword=$5
 # login
 az login --identity --username $managedIdentity
 
+# ensure the preview bits can be used with prompt in UI
+az config set extension.use_dynamic_install=yes_without_prompt
+
 # create databases
 az postgres flexible-server db create --database-name 'domain1' --resource-group $resourceGroupName --server-name $serverName
 az postgres flexible-server db create --database-name 'domain2' --resource-group $resourceGroupName --server-name $serverName

@@ -17,4 +17,4 @@ az postgres flexible-server create --name 'participant2' --resource-group $resou
 az postgres flexible-server create --name 'participant3' --resource-group $resourceGroupName --server-name $serverName
 
 # create users
-az postgres flexible-server execute --admin-user $administratorLogin --admin-password $administratorLoginPassword -name $serverName --database-name 'domain1' --querytext 'create user domain1 with password "P@ssw0rd123!"'
+az postgres flexible-server execute --admin-user $administratorLogin --admin-password $administratorLoginPassword --name $serverName --database-name 'domain1' --querytext 'create user domain1 with password "P@ssw0rd123!"'

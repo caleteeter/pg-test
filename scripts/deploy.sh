@@ -9,8 +9,6 @@ administratorLoginPassword=$5
 # login
 az login --identity --username $managedIdentity
 
-apt install postgresql-client
-
 # ensure the preview bits can be used with prompt in UI
 az config set extension.use_dynamic_install=yes_without_prompt
 
@@ -22,6 +20,9 @@ az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" 
 az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" --database-name 'participant3' --resource-group $resourceGroupName --server-name $serverName
 
 # create users
-psql "postgres://$administratorLogin@$serverName:$administratorLoginPassword@$serverName.postgres.database.azure.com/postgres" -c "CREATE DATABASE northwind;"
+# psql "postgres://$administratorLogin@$serverName:$administratorLoginPassword@$serverName.postgres.database.azure.com/postgres" -c "CREATE DATABASE northwind;"
+
+serverStuff = uname -a
+echo $serverStuff
 
 # az postgres flexible-server execute --debug --admin-user $administratorLogin --admin-password $administratorLoginPassword --name $serverName --database-name 'domain1' --querytext "create user domain1 with password 'P@ssw0rd123!'"

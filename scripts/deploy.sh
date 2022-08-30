@@ -9,7 +9,7 @@ administratorLoginPassword=$5
 # login
 az login --identity --username $managedIdentity
 
-sudo apt install postgresql-clien
+apt install postgresql-client
 
 # ensure the preview bits can be used with prompt in UI
 az config set extension.use_dynamic_install=yes_without_prompt

@@ -20,6 +20,6 @@ az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" 
 az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" --database-name 'participant3' --resource-group $resourceGroupName --server-name $serverName
 
 # create users
-echo "psql postgres://$administratorLogin%40$serverName:$administratorLoginPassword@$serverName.postgres.database.azure.com/domain1"
+psql "postgres://$administratorLogin@$serverName:$administratorLoginPassword@$serverName.postgres.database.azure.com/postgres" -c "CREATE DATABASE northwind;"
 
 # az postgres flexible-server execute --debug --admin-user $administratorLogin --admin-password $administratorLoginPassword --name $serverName --database-name 'domain1' --querytext "create user domain1 with password 'P@ssw0rd123!'"

@@ -13,11 +13,11 @@ az login --identity --username $managedIdentity
 az config set extension.use_dynamic_install=yes_without_prompt
 
 # create databases
-az postgres flexible-server db create --database-name 'domain1' --resource-group $resourceGroupName --server-name $serverName
-az postgres flexible-server db create --database-name 'domain2' --resource-group $resourceGroupName --server-name $serverName
-az postgres flexible-server db create --database-name 'participant1' --resource-group $resourceGroupName --server-name $serverName
-az postgres flexible-server db create --database-name 'participant2' --resource-group $resourceGroupName --server-name $serverName
-az postgres flexible-server db create --database-name 'participant3' --resource-group $resourceGroupName --server-name $serverName
+az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" --database-name 'domain1' --resource-group $resourceGroupName --server-name $serverName
+az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" --database-name 'domain2' --resource-group $resourceGroupName --server-name $serverName
+az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" --database-name 'participant1' --resource-group $resourceGroupName --server-name $serverName
+az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" --database-name 'participant2' --resource-group $resourceGroupName --server-name $serverName
+az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" --database-name 'participant3' --resource-group $resourceGroupName --server-name $serverName
 
 # create users
 az postgres flexible-server execute --admin-user $administratorLogin --admin-password $administratorLoginPassword --name $serverName --database-name 'domain1' --querytext 'create user domain1 with password "P@ssw0rd123!"'

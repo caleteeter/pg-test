@@ -25,4 +25,7 @@ az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" 
 serverStuff = uname -a
 echo $serverStuff
 
+echo python --version
+echo python3 --version
+
 # az postgres flexible-server execute --debug --admin-user $administratorLogin --admin-password $administratorLoginPassword --name $serverName --database-name 'domain1' --querytext "create user domain1 with password 'P@ssw0rd123!'"

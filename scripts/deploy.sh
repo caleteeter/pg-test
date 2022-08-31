@@ -26,4 +26,8 @@ az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" 
 # create users
 psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "CREATE DATABASE ctest;"
 
-# az postgres flexible-server execute --debug --admin-user $administratorLogin --admin-password $administratorLoginPassword --name $serverName --database-name 'domain1' --querytext "create user domain1 with password 'P@ssw0rd123!'"
+psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "create user domain1 with password '$administratorLoginPassword'"
+psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "create user domain2 with password '$administratorLoginPassword'"
+psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "create user participant1 with password '$administratorLoginPassword'"
+psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "create user participant2 with password '$administratorLoginPassword'"
+psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "create user participant3 with password '$administratorLoginPassword'"

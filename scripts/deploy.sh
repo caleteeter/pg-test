@@ -31,3 +31,9 @@ psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres use
 psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "create user participant1 with password '$administratorLoginPassword'"
 psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "create user participant2 with password '$administratorLoginPassword'"
 psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "create user participant3 with password '$administratorLoginPassword'"
+
+psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "grant all privileges on database domain1 to domain1"
+psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "grant all privileges on database domain2 to domain2"
+psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "grant all privileges on database participant1 to participant1"
+psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "grant all privileges on database participant2 to participant2"
+psql "host=$serverName.postgres.database.azure.com port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "grant all privileges on database participant3 to participant3"

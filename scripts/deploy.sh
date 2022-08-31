@@ -14,6 +14,7 @@ az config set extension.use_dynamic_install=yes_without_prompt
 
 # install the psql client
 apk --no-cache add postgresql-client
+export PGPASSWORD=$administratorLoginPassword
 
 # create databases
 az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" --database-name 'domain1' --resource-group $resourceGroupName --server-name $serverName
@@ -23,6 +24,6 @@ az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" 
 az postgres flexible-server db create --charset 'UTF8' --collation "en_US.UTF8" --database-name 'participant3' --resource-group $resourceGroupName --server-name $serverName
 
 # create users
-psql -U $administratorLogin -P  "postgres://$administratorLogin%40$serverName:$administratorLoginPassword@$serverName.postgres.database.azure.com:5432/postgres" -c "CREATE DATABASE northwind;"
+psql "host=$serverName port=5432 dbname=postgres user=$administratorLogin sslmode=require" -c "CREATE DATABASE ctest;"
 
 # az postgres flexible-server execute --debug --admin-user $administratorLogin --admin-password $administratorLoginPassword --name $serverName --database-name 'domain1' --querytext "create user domain1 with password 'P@ssw0rd123!'"
